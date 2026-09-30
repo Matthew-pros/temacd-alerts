@@ -102,6 +102,9 @@ Edit `config.py`:
 ```bash
 pip install -r requirements.txt
 
+# Integrated dashboard: signals, complete backtests, reports and optional email alerts
+streamlit run streamlit_app.py
+
 # Test the alert logic once without waiting for the scheduled job:
 SMTP_SERVER=smtp.gmail.com SMTP_PORT=465 SMTP_USER=you@gmail.com \
 SMTP_PASS=xxxxxxxxxxxxxxxx EMAIL_TO=you@gmail.com python main.py
@@ -112,6 +115,11 @@ python run_backtest.py
 # Quick single-ticker stats in the terminal:
 python backtest.py NQ
 ```
+
+The Streamlit app uses the existing Python modules for data retrieval, strategy signals,
+backtest metrics, Monte Carlo and walk-forward analysis. Select tickers and assumptions
+in the sidebar; e-mail alerts are sent only after manually confirming the form in the app.
+The dashboard fetches weekly market data from Yahoo Finance and caches it for one hour.
 
 ## Important caveats
 
